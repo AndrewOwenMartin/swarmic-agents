@@ -1,0 +1,10 @@
+LICENCE.md
+pyproject.toml
+swarmic.egg-info/PKG-INFO
+swarmic.egg-info/SOURCES.txt
+swarmic.egg-info/dependency_links.txt
+swarmic.egg-info/requires.txt
+swarmic.egg-info/top_level.txt
+swarmic_agents/chat.py
+swarmic_agents/jobber.py
+swarmic_agents/test_chat.py

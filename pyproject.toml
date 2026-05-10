@@ -7,7 +7,7 @@ name = "swarmic"
 version = "0.0.0"
 dependencies = [
   "requests",
-  "pydantic",
+  # "pydantic",
 ]
 requires-python = ">=3.12"
 authors = [
@@ -18,13 +18,14 @@ maintainers = [
 ]
 description = "Swarm of Agents talking though one LLM."
 readme = "README.md"
-license = "APACHE2"
+license = "Apache-2.0"
 license-files = ["LICEN[CS]E.*"]
 keywords = []
 classifiers = [
 ]
 
-# [project.optional-dependencies]
+[project.optional-dependencies]
+test = ["pytest"]
 # gui = ["PyQt5"]
 # cli = [
 #   "rich",
