@@ -24,7 +24,7 @@ keywords = []
 classifiers = [
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 test = ["pytest"]
 # gui = ["PyQt5"]
 # cli = [
