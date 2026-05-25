@@ -1,4 +1,5 @@
 LICENCE.md
+README.md
 pyproject.toml
 swarmic.egg-info/PKG-INFO
 swarmic.egg-info/SOURCES.txt

@@ -9,4 +9,8 @@ Requires-Python: >=3.12
 Description-Content-Type: text/markdown
 License-File: LICENCE.md
 Requires-Dist: requests
+Requires-Dist: pydantic
+Requires-Dist: types-requests
 Dynamic: license-file
+
+# Intro

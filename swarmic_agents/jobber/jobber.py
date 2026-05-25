@@ -1,14 +1,13 @@
-from dataclasses import dataclass
 import json
 from pathlib import Path
 from typing import TypedDict
 from uuid import UUID, uuid4
-import chat
+from swarmic_agents.chat import make_payload, ChatRequest, send_payload
 from datetime import datetime, UTC
+from pydantic import BaseModel
 
 
-@dataclass
-class Job:
+class Job(BaseModel):
     name: str
     prompt: list[Path]
 
@@ -28,12 +27,12 @@ class Job:
     def prompt_dir(self) -> Path:
         return self.agent_dir / "prompt"
 
-    def get_payload(self, inbox_item: Path) -> dict:
+    def get_payload(self, inbox_item: Path) -> ChatRequest:
         texts = []
         for prompt_file in self.prompt:
             texts.append(prompt_file.read_text())
         texts.append(inbox_item.read_text())
-        return chat.make_payload(texts=texts)
+        return make_payload(texts=texts)
 
     def create_directories(self):
         for directory in [self.inbox, self.outbox, self.prompt_dir]:
@@ -74,7 +73,7 @@ def run_jobber():
         for inbox_item in job.inbox.iterdir():
             payload = job.get_payload(inbox_item)
             start = datetime.now(tz=UTC)
-            response = chat.send_payload(payload)
+            response = send_payload(payload)
             end = datetime.now(tz=UTC)
             job_id = uuid4()
             write_job_db(
